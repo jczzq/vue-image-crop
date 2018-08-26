@@ -5,9 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-comp": "vue-cli-service build --target lib --name vueImageCrop src/index.js",
     "lint": "vue-cli-service lint"
   },
+  "main": "lib/index.js",
   "dependencies": {
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
     "vue": "^2.5.17"
   },
   "devDependencies": {
