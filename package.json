@@ -2,9 +2,7 @@
   "name": "vue-image-crop",
   "version": "0.1.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build-comp": "vue-cli-service build --target lib --name vueImageCrop src/index.js",
+    "build": "vue-cli-service build --target lib --name vueImageCrop src/index.js",
     "lint": "vue-cli-service lint"
   },
   "description": "基于Vue的移动端图片裁剪&上传组件",
