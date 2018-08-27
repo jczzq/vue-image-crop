@@ -117,8 +117,8 @@ export default {
             type: Boolean,
             default: false
         },
-        // 是否直接上传
-        immediatelyUpload: {
+        // 是否跳过裁剪直接使用
+        skipCrop: {
             type: Boolean,
             default: false
         },
@@ -128,7 +128,7 @@ export default {
             default: function() {
                 return {
                     size: 1200, // 图片最大宽度（px）
-                    isSlice: true, // 是否需要裁剪
+                    isSlice: true, // 文件比例一致时是否需要裁剪，与skipCrop不同
                     path: null // 显示图片时的路径，path参数将直接与图片id拼接(path + id)
                 };
             }
@@ -175,7 +175,7 @@ export default {
                         });
                     }, 800);
                 };
-                if (this.immediatelyUpload) {
+                if (this.skipCrop) {
                     this.uploadCanvas();
                 } else {
                     if (
@@ -185,7 +185,7 @@ export default {
                             this.proportion.w / this.proportion.h
                     ) {
                         var flag = window.confirm(
-                            '文件已符合规定尺寸，是否直接上传？'
+                            '文件已符合规定尺寸，是否直接使用？'
                         );
                         if (flag) {
                             this.uploadCanvas();
@@ -542,7 +542,7 @@ export default {
             this.$emit('submit', this.currentValue);
         },
         uploadCanvas() {
-            // 不裁剪，直接上传
+            // 不裁剪，直接使用
             let imgWidth = this.filRealitySize.width;
             if (imgWidth > this.config.size) {
                 imgWidth = this.config.size;

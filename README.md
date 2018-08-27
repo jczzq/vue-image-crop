@@ -31,7 +31,7 @@ build之后会重新生成lib文件夹
 | proportion | Object | { w: 2, h: 1 } |图片宽高比例对象；非必传；用于动态计算宽高比例，所以w和h两个属性没有固定值|
 | quality | Number | 0.92 |清晰度；非必传；[HTMLCanvasElement.toDataURL()](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL)的第二个参数|
 | hasRemove | Boolean | false |是否显示移除按钮；非必传；列表中使用时可能会用到|
-| immediatelyUpload | Boolean | false |是否直接上传；非必传；设置为true的时候图片将不会裁剪直接返回|
+| skipCrop | Boolean | false |是否直接上传；非必传；设置为true的时候图片将不会裁剪直接返回|
 | config | Object | { size: 1200, isSlice: true, path: null } |配置对象；此对象不传有默认值，若传时对象里的每个属性都必须传；size:图片最大宽度（px），isSlice:是否需要裁剪，path:显示图片时的路径，path参数将直接与图片id拼接(path + id)|
 
 ### events
