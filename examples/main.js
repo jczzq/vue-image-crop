@@ -1,10 +1,10 @@
-import Vue from 'vue'
-import App from './App'
-import Msg from 'main'
+import Vue from 'vue';
+import App from './App';
+import mic from '../src/index';
 
-Vue.use(Msg)
+Vue.use(mic);
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+    el: '#app',
+    render: h => h(App)
+});

@@ -3,7 +3,7 @@
         <img class="show-img"
              :src="currentValue | fileSrc">
         <svg v-if="hasRemove"
-             @click.stop="$emit('remove');"
+             @click.stop="$emit('remove')"
              class="icon icon-remove"
              aria-hidden="true">
             <use xlink:href="#icon-remove"></use>
@@ -35,9 +35,7 @@
                          alt="">
                 </div>
             </div>
-            <div layout="row"
-                 layout-align="space-between stretch"
-                 class="ctrl">
+            <div class="ctrl">
                 <div class="back"
                      flex="33"
                      @click="back"
@@ -57,25 +55,15 @@
         </div>
     </div>
 </template>
-<script>
-/*
- value{}
- hasRemove: 是否显示移除按钮
- config{
-    size:1200 固定图片宽度  1200默认
-    isSlice: true 判断图片是否符合比例，是否直接上传
- }此对象不传有默认，传时对象里的每个属性必须都传
- proportion:{w: 2,h: 1}长宽比
- quality 清晰度默认1
- immediatelyUpload：false 是否直接上传 false  ture
- 屏幕旋转暂未调试
 
- event
- remove：移除按钮被点击时触发
- change：改变选中图片时触发
- submit：图片操作完成时触发
- cancel：图片操作取消时触发
-* */
+<script>
+/**
+ * [events]
+ * remove: 移除按钮被点击时触发
+ * change: 改变选中图片时触发
+ * submit: 图片操作完成时触发
+ * cancel: 图片操作取消时触发
+ */
 import './iconfont.js';
 export default {
     name: 'm-image-crop',
@@ -103,28 +91,38 @@ export default {
         };
     },
     props: {
+        // 图片包装对象
         value: {
-            type: Object
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
         },
+        // 图片宽高比例
         proportion: {
             type: Object,
             default: function() {
-                // 比例
+                // w: 宽；h：高
                 return { w: 2, h: 1 };
             }
         },
+        // 清晰度
         quality: {
             type: Number,
-            default: 0.98
+            default: 0.92
         },
+        // 是否显示移除按钮
         hasRemove: {
             type: Boolean,
             default: false
         },
+        // 是否直接上传
         immediatelyUpload: {
             type: Boolean,
             default: false
         },
+        // 配置对象
         config: {
             type: Object,
             default: function() {
@@ -763,8 +761,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-@lightGray: #c1c1c1; //浅灰2  注释性文字
+<style lang="less">
 .m-image-crop {
     position: relative;
     display: inline-block;
@@ -833,14 +830,12 @@ export default {
         left: 0;
         z-index: 4;
     }
-    .back.fixed-sumbit-btn.primary {
-        background: @lightGray;
-    }
     .ctrl {
-        div {
-            border: 1px solid fade(white, 10%);
-            background: fade(white, 10%);
-        }
+        display: flex;
+        flex-direction: row;
+        word-break: break-all;
+        justify-content: space-between;
+        align-items: stretch;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -850,6 +845,12 @@ export default {
         font-size: 16px;
         color: white;
         height: 50px;
+        & > div {
+            line-height: 50px;
+            border: 1px solid fade(white, 10%);
+            background: fade(white, 10%);
+            flex: 1;
+        }
     }
 }
 </style>
