@@ -1,10 +1,8 @@
-const path = require('path');
-console.log(path.resolve(__dirname, './lib')); // eslint-disable-line
+// const path = require("path");
+
+console.log(process.env.outputDir);
+
 module.exports = {
-    outputDir: 'lib',
-    configureWebpack: {
-        output: {
-            libraryExport: 'default'
-        }
-    }
+  outputDir: process.env.outputDir,
+  configureWebpack: {}
 };

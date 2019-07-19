@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "vue-cli-service serve examples/main.js",
-    "build": "vue-cli-service build --target lib --name vueImageCrop src/index.js",
+    "build": "vue-cli-service build examples/main.js --mode app && node deploy.js",
+    "lib": "vue-cli-service build --target lib --name vue-image-crop src/index.js --mode lib",
     "lint": "vue-cli-service lint"
   },
   "description": "基于Vue的移动端图片裁剪组件",
   "author": "jczzq <1195262383@qq.com>",
   "main": "lib/index.js",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "vue": "^2.5.17"
@@ -29,7 +31,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": 0
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

@@ -1,8 +1,9 @@
-import mImageCrop from './m-image-crop';
+import mImageCrop from "./m-image-crop";
 
-export default {
-    version: '0.0.1',
-    install: Vue => {
-        Vue.component(mImageCrop.name, mImageCrop);
-    }
+mImageCrop.install = Vue => {
+  if (mImageCrop.installed) return;
+  mImageCrop.installed = true;
+  Vue.component(mImageCrop.name, mImageCrop);
 };
+
+export default mImageCrop;
