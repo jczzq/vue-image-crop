@@ -2,7 +2,7 @@
 
 基于 Vue 的移动端图片裁剪组件
 
-> 组件使用`URL.createObjectURL()`等新特性，使用前注意兼容问题。IE >= 10
+> 组件使用`URL.createObjectURL()`等新特性，使用前注意兼容问题，IE >= 10   
 > 没写测试所以就不发npm了，需要的话自行fork吧
 
 ## 功能预览
