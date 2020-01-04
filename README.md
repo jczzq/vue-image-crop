@@ -9,15 +9,11 @@
 
 ![预览](public/mic.png)![裁剪](public/mic2.png)
 
-## 快速开始
+## 开发
 
 安装 Node >= `8.9.0`（推荐 LTS = `8.11.0`）
 
 ```
-# 安装 vue-cli 3.x
-npm install -g @vue/cli
-
-cd vue-image-crop
 npm install
 npm run dev
 ```
@@ -54,8 +50,11 @@ build 之后会重新生成 lib 文件夹
 | submit | 图片操作完成时触发   | 当前裁剪后的图片对象          |
 | cancel | 图片操作取消时触发   | -                             |
 
-## 示例代码
+## 使用
+### umd用法
+https://github.com/jczzq/vue-image-crop/blob/master/demo.html
 
+### vue单文件组件用法
 ```
 <template>
     <div class="ctnr">
@@ -87,7 +86,12 @@ build 之后会重新生成 lib 文件夹
 </template>
 
 <script>
+import mImageCrop from './m-image-crop.vue'
+
 export default {
+    components: {
+      mImageCrop
+    },
     data() {
         return {
             img: {},
