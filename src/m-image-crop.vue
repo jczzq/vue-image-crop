@@ -546,7 +546,7 @@ export default {
       e.preventDefault();
     },
     addEventDefault() {
-      document.addEventListener("touchmove", this.preventDefault, false);
+      document.addEventListener("touchmove", this.preventDefault, { passive: false });
     },
     removeEventDefault() {
       document.removeEventListener("touchmove", this.preventDefault, false);
