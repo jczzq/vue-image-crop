@@ -6,4 +6,8 @@ mImageCrop.install = Vue => {
   Vue.component(mImageCrop.name, mImageCrop);
 };
 
+if (window.Vue) {
+  mImageCrop.install(window.Vue)
+}
+
 export default mImageCrop;

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>vue-image-crop demo</title>
+    <link rel="stylesheet" href="./lib/vue-image-crop.css" />
+    <style>
+      .mic {
+        border: 1px dotted #4fc08d;
+      }
+      .mic1 {
+        width: 200px;
+        height: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      {{ msg }}
+      <m-image-crop class="mic mic1" v-model="img"></m-image-crop>
+    </div>
+  </body>
+
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+  <script src="./lib/vue-image-crop.umd.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        msg: "Hello vue-image-crop",
+        img: {}
+      }
+    });
+  </script>
+</html>
